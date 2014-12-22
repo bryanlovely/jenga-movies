@@ -1,0 +1,16 @@
+{
+  "generator-wdpr-angular": {
+    "appName": "movies",
+    "routing": "angular-ui-router",
+    "srcDir": "src/client",
+    "appDir": "src/client/movies",
+    "featureDir": "src/client/movies/features",
+    "core": [],
+    "features": [
+      "suggestions",
+      "movieList",
+      "addMovie"
+    ],
+    "angularComponents": "angular/angular.js, angular-mocks/angular-mocks.js, angular-animate/angular-animate.js, angular-resource/angular-resource.js, angular-cookies/angular-cookies.js, angular-touch/angular-touch.js, angular-sanitize/angular-sanitize.js, bootstrap/dist/js/bootstrap.js"
+  }
+}
