@@ -9,7 +9,7 @@
                 placeholder="Enter movie title"
                 ng-model="imdbSuggestion"
                 typeahead="suggestion for suggestions in suggVm.getSuggestions($viewValue)"
-                typeahead-on-select="suggVm.fillForm($item, $model, $label)"
+                typeahead-on-select="suggVm.fillForm($item)"
                 typeahead-template-url="movies/features/imdb-suggestions-form/suggestionItem.html"
             >
         </div>

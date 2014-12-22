@@ -16,7 +16,6 @@
                     var callbackId = angular.callbacks.counter.toString(36);
                     config.callbackName = 'imdb$' + config.url.match(/([^\/]+)\.json/)[1];
                     config.url = config.url.replace('JSON_CALLBACK', config.callbackName);
-                    console.log("callbackId", callbackId, "config.callbackName", config.callbackName, "config.url", config.url);
                     $timeout(function() {
                         $window[config.callbackName] = angular.callbacks['_' + callbackId];
                     }, 0, false);
