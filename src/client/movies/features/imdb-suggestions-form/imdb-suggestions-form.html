@@ -1,0 +1,17 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="imdbSuggestions" class="col-xs-2 col-sm-2 control-label">IMDB:</label>
+
+        <div class="col-xs-10 col-sm-4">
+            <input type="text"
+                id="imdbSuggestions"
+                class="form-control"
+                placeholder="Enter movie title"
+                ng-model="imdbSuggestion"
+                typeahead="suggestion for suggestions in suggVm.getSuggestions($viewValue)"
+                typeahead-on-select="suggVm.fillForm($item, $model, $label)"
+                typeahead-template-url="movies/features/imdb-suggestions-form/suggestionItem.html"
+            >
+        </div>
+    </div>
+</form>

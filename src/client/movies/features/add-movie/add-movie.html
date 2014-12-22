@@ -1,0 +1,63 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{addVm.title}}</h3>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+
+        <imdb-suggestions-form></imdb-suggestions-form>
+
+        <hr>
+
+        <form role="form" class="form-horizontal">
+            <div class="form-group">
+                <label for="addMovieTitle" class="col-xs-2 control-label">Title</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="addMovieTitle" placeholder="Title" ng-model="addVm.addMovie.title" />
+                </div>
+                <label for="addMovieYear" class="col-xs-2 control-label">Year</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="addMovieYear" placeholder="Year" ng-model="addVm.addMovie.year" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="addMovieStarring" class="col-xs-2 control-label">Starring</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="addMovieStarring" placeholder="Starring" ng-model="addVm.addMovie.starring" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="addMovieType" class="col-xs-2 control-label">Type</label>
+                <div class="col-xs-10">
+                    <div class="btn-group btn-group-justified" role="group">
+                        <a href="#" class="btn btn-success" role="button" ng-model="addVm.addMovie.movieType" btn-radio="'feature'">Feature Film</a>
+                        <a href="#" class="btn btn-success" role="button" ng-model="addVm.addMovie.movieType" btn-radio="'tv_movie'">TV Movie</a>
+                        <a href="#" class="btn btn-success" role="button" ng-model="addVm.addMovie.movieType" btn-radio="'tv_series'">TV Series</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="addMovieFormat" class="col-xs-2 control-label">Format</label>
+                <div class="col-xs-10">
+                    <div class="btn-group btn-group-justified" role="group">
+                        <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.blu_ray" btn-checkbox>Blu-Ray</a>
+                        <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.dvd" btn-checkbox>DVD</a>
+                        <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.vhs" btn-checkbox>VHS</a>
+                        <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.laserdisc" btn-checkbox>LaserDisc</a>
+                        <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.amazon" btn-checkbox>Amazon</a>
+                        <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.pc" btn-checkbox>PC</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <pre>{{addVm.addMovie | json}}</pre>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+
+

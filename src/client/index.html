@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Movies</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css movies.bowerDependencies.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css movies.css -->
+        <!-- injector:css -->
+        <!-- endinjector -->
+    <!-- endbuild -->
+
+</head>
+<body ng-app="movies" style="padding-top: 70px;">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Jenga's Awesome Movie Collection</a>
+        </div>
+    </div>
+</nav>
+
+
+<div ui-view class="container"></div>
+
+<div ng-controller="CoreController as coreVm">
+    <button class="btn btn-default" ng-click="coreVm.open('lg')">Add Movie</button>
+</div>
+
+<!--[if lt IE 9]>
+<script src="../../bower_components/es5-shim/es5-shim.js"></script>
+<script src="../../bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js movies.bowerDependencies.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js movies.js -->
+    <!-- injector:js -->
+    <script src="movies/core/core.module.js"></script>
+    <script src="movies/core/core.config.js"></script>
+    <script src="movies/layout/layout.module.js"></script>
+    <script src="movies/layout/layout.config.js"></script>
+    <script src="movies/features/imdb-suggestions-form/imdb-suggestions-form.module.js"></script>
+    <script src="movies/features/imdb-suggestions-form/imdb-suggestions-form.config.js"></script>
+    <script src="movies/features/imdb-suggestions-form/imdb-suggestions-form.controller.js"></script>
+    <script src="movies/features/imdb-suggestions-form/movies-only.filter.js"></script>
+    <script src="movies/features/imdb-suggestions-form/jsonp-interceptor.factory.js"></script>
+    <script src="movies/features/imdb-suggestions-form/get-suggestions.factory.js"></script>
+    <script src="movies/features/imdb-suggestions-form/imdb-suggestions-form.directive.js"></script>
+    <script src="movies/features/movie-list/movie-list.module.js"></script>
+    <script src="movies/features/movie-list/movie-list.config.js"></script>
+    <script src="movies/features/movie-list/movie-list.controller.js"></script>
+    <script src="movies/features/add-movie/add-movie.module.js"></script>
+    <script src="movies/features/add-movie/add-movie.config.js"></script>
+    <script src="movies/features/add-movie/add-movie.controller.js"></script>
+    <!-- endinjector -->
+<!-- endbuild -->
+
+</body>
+</html>
