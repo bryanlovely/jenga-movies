@@ -3,6 +3,7 @@
 
     angular
         .module('movies.core')
+        .value('movieDataUrl', 'http://www.omdbapi.com/')
         .config(configuration)
         .controller('CoreController', CoreController);
 
@@ -10,7 +11,7 @@
         // TODO: Implementation of configuration in module movies.core
     }
 
-
+    /** temp code until I get the routes/states working **/
     function CoreController ($modal) {
         var vm = this;
         vm.open = function (size) {

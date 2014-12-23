@@ -7,17 +7,8 @@
 
     function moviesOnly () {
         return function (input) {
-            return input.data.d.filter(function(item) {
-                return !_.isNull(item.id.match(/^tt/));
-            }).map(function(item) {
-                return {
-                    id: item.id,
-                    title: item.l,
-                    year: item.y,
-                    format: item.q.toLowerCase().replace(/ /, '_'),
-                    formatPretty: capitalize(item.q),
-                    starring: item.s
-                };
+            return input.data.Search.filter(function(item) {
+                return !_.isNull(item.imdbID.match(/^tt/)) && item.Type !== 'episode';
             });
         };
     }

@@ -5,26 +5,19 @@
         .module('movies.addMovie')
         .controller('AddMovieController', AddMovieController);
 
-    //AddMovieController.$inject = [''];
+    AddMovieController.$inject = ['getMovieData'];
 
     /* @ngInject */
-    function AddMovieController() {
+    function AddMovieController(getMovieData) {
         var vm = this;
 
         vm.title = 'Add A Movie';
-
         vm.addMovie = {};
         vm.fillForm = fillForm;
 
-        activate();
-
-        function activate() {
-        }
-
         function fillForm(imdbSuggestion) {
-            console.log("Add Movie Fill Form", imdbSuggestion.id);
+            getMovieData(imdbSuggestion.imdbID);
         }
     }
-
 
 })();

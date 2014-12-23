@@ -5,14 +5,19 @@
         .module('movies.imdb-suggestions-form')
         .factory('getSuggestions', getSuggestions);
 
-    getSuggestions.$inject = ['$http', '$filter', 'suggestionUrl'];
+    getSuggestions.$inject = ['$http', '$filter', 'movieDataUrl'];
 
     /* @ngInject */
-    function getSuggestions($http, $filter, suggestionUrl) {
-        return function(val) {
-            val = val.toLowerCase().replace(/ /, '_');
-            var url = suggestionUrl + val.substr(0, 1) + '/' + val + '.json' + '?callback=JSON_CALLBACK';
-            return $http.jsonp(url)
+    function getSuggestions($http, $filter, movieDataUrl) {
+        return function(nameFragment) {
+            var config = {
+                params: {
+                    s: nameFragment + '*',
+                    callback: 'JSON_CALLBACK',
+                    requestType: 'json'
+                }
+            };
+            return $http.jsonp(movieDataUrl, config)
                 .then(function(response) {
                     return $filter('moviesOnly')(response);
                 });

@@ -8,18 +8,45 @@
 
         <hr>
 
+        <div class="media" >
+            <img class="media-image" src="{{addVm.addMovie.Poster}}" />
+            <div class="media-body">
+                <h3 class="media-title">{{addVm.addMovie.Title}} <small>({{addVm.addMovie.Year}})</small></h3>
+                <p><strong>Type:</strong> {{addVm.addMovie.Type}}</p>
+                <p><strong>Runtime:</strong> {{addVm.addMovie.Runtime}}</p>
+                <p><strong>Genre:</strong> {{addVm.addMovie.Genre}}</p>
+                <p><strong>Rated:</strong> {{addVm.addMovie.Rated}}</p>
+                <p><strong>Director:</strong> {{addVm.addMovie.Director}}</p>
+                <p><strong>Starring:</strong> {{addVm.addMovie.Actors}}</p>
+
+                <p><strong>Format:</strong></p>
+                <div class="btn-group btn-group-justified" role="group">
+                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.blu_ray" btn-checkbox>Blu-Ray</a>
+                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.dvd" btn-checkbox>DVD</a>
+                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.vhs" btn-checkbox>VHS</a>
+                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.laserdisc" btn-checkbox>LaserDisc</a>
+                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.amazon" btn-checkbox>Amazon</a>
+                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.pc" btn-checkbox>PC</a>
+                </div>
+
+            </div>
+        </div>
+
+
+<!--
         <form role="form" class="form-horizontal">
             <div class="form-group">
                 <label for="addMovieTitle" class="col-xs-2 control-label">Title</label>
                 <div class="col-xs-10">
-                    <input type="text" class="form-control" id="addMovieTitle" placeholder="Title" ng-model="addVm.addMovie.title" />
-                </div>
-                <label for="addMovieYear" class="col-xs-2 control-label">Year</label>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control" id="addMovieYear" placeholder="Year" ng-model="addVm.addMovie.year" />
+                    <input type="text" class="form-control" id="addMovieTitle" placeholder="Title" ng-model="addVm.addMovie.Title" />
                 </div>
             </div>
-
+            <div class="form-group">
+                <label for="addMovieYear" class="col-xs-2 control-label">Year</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="addMovieYear" placeholder="Year" ng-model="addVm.addMovie.Year" />
+                </div>
+            </div>
             <div class="form-group">
                 <label for="addMovieStarring" class="col-xs-2 control-label">Starring</label>
                 <div class="col-xs-10">
@@ -51,6 +78,7 @@
             </div>
         </form>
     </div>
+ -->
 
     <pre>{{addVm.addMovie | json}}</pre>
 
