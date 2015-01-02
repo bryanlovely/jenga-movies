@@ -13,19 +13,20 @@
             controllerAs: 'suggVm',
             restrict: 'EA',
             link: link,
-            templateUrl: 'movies/features/imdb-suggestions-form/imdb-suggestions-form.html',
-            scope: {
-                'fillForm': '=fillForm'
-            }
+            templateUrl: 'movies/features/imdb-suggestions-form/imdb-suggestions-form.directive.html',
+            scope: true
+//             {
+//                 'fillForm': '=fillForm'
+//             }
         };
 
         return directive;
 
         function link(scope, element, attrs, controller) {
-            controller.fillForm = scope.fillForm;
+            controller.fillForm = scope.$parent.addVm.fillForm;
+            console.log(scope, element, attrs, controller);
         }
     }
-
 
     ImdbSuggestionsFormController.$inject = ['getSuggestions'];
 
@@ -34,6 +35,5 @@
         var vm = this;
         vm.getSuggestions = getSuggestions;
     }
-
 
 })();

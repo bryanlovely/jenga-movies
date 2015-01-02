@@ -5,17 +5,16 @@
         .module('movies.movieList')
         .controller('MovieListController', MovieListController);
 
-    //MovieListController.$inject = [''];
+    MovieListController.$inject = ['$modal', 'movieListFactory', 'addMovieModal'];
 
-    /* @ngInject */
-    function MovieListController() {
+    function MovieListController ($modal, movieListFactory, addMovieModal) {
+
         var vm = this;
-        vm.title = 'MovieList';
 
-        activate();
+        vm.movieList = movieListFactory.getMovieList();
 
-        function activate() {
-        }
+        vm.openModal = addMovieModal.openModal;
+
     }
 
 })();

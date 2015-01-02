@@ -8,26 +8,39 @@
 
         <hr>
 
-        <div class="media" >
-            <img class="media-image" src="{{addVm.addMovie.Poster}}" />
+        <div class="media" ng-if="addVm.addedMovie">
+            <img class="pull-left" style="width: 100px;" ng-src="{{addVm.addedMovie.Poster}}" />
             <div class="media-body">
-                <h3 class="media-title">{{addVm.addMovie.Title}} <small>({{addVm.addMovie.Year}})</small></h3>
-                <p><strong>Type:</strong> {{addVm.addMovie.Type}}</p>
-                <p><strong>Runtime:</strong> {{addVm.addMovie.Runtime}}</p>
-                <p><strong>Genre:</strong> {{addVm.addMovie.Genre}}</p>
-                <p><strong>Rated:</strong> {{addVm.addMovie.Rated}}</p>
-                <p><strong>Director:</strong> {{addVm.addMovie.Director}}</p>
-                <p><strong>Starring:</strong> {{addVm.addMovie.Actors}}</p>
+                <h3 class="media-heading">{{addVm.addedMovie.Title}} <small>({{addVm.addedMovie.Year}})</small></h3>
+                <p><strong>Type:</strong> {{addVm.addedMovie.Type}}</p>
+                <p><strong>Runtime:</strong> {{addVm.addedMovie.Runtime}}</p>
+                <p><strong>Genre:</strong> {{addVm.addedMovie.Genre}}</p>
+                <p><strong>Rated:</strong> {{addVm.addedMovie.Rated}}</p>
+                <p><strong>Director:</strong> {{addVm.addedMovie.Director}}</p>
+                <p><strong>Starring:</strong> {{addVm.addedMovie.Actors}}</p>
 
-                <p><strong>Format:</strong></p>
-                <div class="btn-group btn-group-justified" role="group">
-                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.blu_ray" btn-checkbox>Blu-Ray</a>
-                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.dvd" btn-checkbox>DVD</a>
-                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.vhs" btn-checkbox>VHS</a>
-                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.laserdisc" btn-checkbox>LaserDisc</a>
-                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.amazon" btn-checkbox>Amazon</a>
-                    <a href="#" class="btn btn-info" role="button" ng-model="addVm.addMovie.format.pc" btn-checkbox>PC</a>
-                </div>
+                <p><strong>Format:</strong>
+                <span class="btn-group" role="group">
+                    <button class="btn btn-default" role="button" ng-model="addVm.addedMovie.format.blu_ray" btn-checkbox>
+                        <span class="mediaFormatIcon lg bluray"></span>
+                    </button>
+                    <button class="btn btn-default" role="button" ng-model="addVm.addedMovie.format.dvd" btn-checkbox>
+                        <span class="mediaFormatIcon lg dvd"></span>
+                    </button>
+                    <button class="btn btn-default" role="button" ng-model="addVm.addedMovie.format.vhs" btn-checkbox>
+                        <span class="mediaFormatIcon lg vhs"></span>
+                    </button>
+                    <button class="btn btn-default" role="button" ng-model="addVm.addedMovie.format.laserdisc" btn-checkbox>
+                        <span class="mediaFormatIcon lg laserdisc"></span>
+                    </button>
+                    <button class="btn btn-default" role="button" ng-model="addVm.addedMovie.format.amazon" btn-checkbox>
+                        <span class="mediaFormatIcon lg amazon"></span>
+                    </button>
+                    <button class="btn btn-default" role="button" ng-model="addVm.addedMovie.format.pc" btn-checkbox>
+                        <span class="mediaFormatIcon lg computer"></span>
+                    </button>
+                </span>
+                </p>
 
             </div>
         </div>
@@ -80,12 +93,12 @@
     </div>
  -->
 
-    <pre>{{addVm.addMovie | json}}</pre>
+<!--     <pre>{{addVm.addedMovie | json}}</pre> -->
 
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-class="addVm.validateForm()?'':'disabled'" ng-click="addVm.addMovie()">OK</button>
+    <button class="btn btn-warning" ng-click="addVm.addMovieModal.closeModal()">Cancel</button>
 </div>
 
 

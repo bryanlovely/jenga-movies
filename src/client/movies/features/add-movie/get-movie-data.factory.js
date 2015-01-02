@@ -22,7 +22,6 @@
             };
             return $http.jsonp(movieDataUrl, config)
                 .then(function(response) {
-                    console.log("get movie data",response);
                     return response;
                 });
         };

@@ -130,7 +130,7 @@ var specHelper = (function() {
         }
 
         var exp = 'inject(' + fn + ');' +
-            'afterEach(function(){' + cleanupBody + '});'; // remove from window.
+            'afterEach(function() {' + cleanupBody + '});'; // remove from window.
 
         //Function(exp)(); // the assigned vars will be global. `afterEach` will remove them
         /* jshint evil:true */

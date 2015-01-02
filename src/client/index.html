@@ -5,6 +5,7 @@
     <title>Movies</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <base href="/"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css movies.bowerDependencies.css -->
@@ -40,10 +41,6 @@
 
 
 <div ui-view class="container"></div>
-
-<div ng-controller="CoreController as coreVm">
-    <button class="btn btn-default" ng-click="coreVm.open('lg')">Add Movie</button>
-</div>
 
 <!--[if lt IE 9]>
 <script src="../../bower_components/es5-shim/es5-shim.js"></script>

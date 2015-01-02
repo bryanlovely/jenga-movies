@@ -6,6 +6,7 @@ lib-cov
 *.out
 *.pid
 *.gz
+*.pxm
 
 pids
 logs
@@ -15,6 +16,9 @@ npm-debug.log
 
 **/node_modules
 **/bower_components
+**/coverage
+**/build
+**/dist
 
 .idea
 .tmp

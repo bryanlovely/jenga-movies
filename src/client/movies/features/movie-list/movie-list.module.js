@@ -2,6 +2,5 @@
     'use strict';
 
     angular
-        .module('movies.movieList', [
-            ]);
+        .module('movies.movieList', ['movies.firebase', 'movies.addMovie']);
 })();

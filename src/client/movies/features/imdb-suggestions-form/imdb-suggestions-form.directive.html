@@ -10,7 +10,8 @@
                 ng-model="imdbSuggestion"
                 typeahead="suggestion for suggestions in suggVm.getSuggestions($viewValue)"
                 typeahead-on-select="suggVm.fillForm($item)"
-                typeahead-template-url="movies/features/imdb-suggestions-form/suggestionItem.html"
+                typeahead-wait-ms="10"
+                typeahead-template-url="movies/features/imdb-suggestions-form/suggestionItem.directive.html"
             >
         </div>
     </div>

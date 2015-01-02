@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -12,15 +12,15 @@
         $stateProvider
             .state('addMovie', {
                 url: '/add-movie',
-                templateUrl: 'movies/features/add-movie/add-movie.html',
-                controller: 'AddMovieCtrl',
-                controllerAs: 'AddMovieVm'
+                templateUrl: 'movies/features/add-movie/add-movie.view.html',
+                controller: 'AddMovieController',
+                controllerAs: 'addVm'
             })
             .state('movieList', {
-                url: '/movie-list',
-                templateUrl: 'movies/features/movie-list/movie-list.html',
-                controller: 'MovieListCtrl',
-                controllerAs: 'MovieListVm'
+                url: '/',
+                templateUrl: 'movies/features/movie-list/movie-list.view.html',
+                controller: 'MovieListController',
+                controllerAs: 'listVm'
             })
             .state('suggestions', {
                 url: '/suggestions',
@@ -28,11 +28,11 @@
 //                 controller: 'SuggestionsCtrl',
 //                 controllerAs: 'suggVm'
             })
-            .state('default', {
-                url: '/',
-                template: '<div><h1>Movies - root</h1></div>',
-                title: 'Movies'
-            })
+//             .state('default', {
+//                 url: '/',
+//                 template: '<div><h1>Movies - root</h1></div>',
+//                 title: 'Movies'
+//             })
             ;
     }
 })();

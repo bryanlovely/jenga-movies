@@ -1,0 +1,12 @@
+<div>
+    <h2>View for Movie list</h2>
+
+    <button class="btn btn-default" ng-click="listVm.openModal('lg')">Add Movie</button>
+
+    <ul>
+        <li ng-repeat="movie in listVm.movieList">
+            {{movie.Title}}
+        </li>
+    </ul>
+
+</div>

@@ -1,11 +1,11 @@
 /* jshint -W117, -W030 */
-describe('Service: GetSuggestions', function () {
+describe('Service: GetSuggestions', function() {
     'use strict';
 
     var getSuggestions;
 
     // load the service's module
-    beforeEach(function () {
+    beforeEach(function() {
         module('movies.imdb-suggestions-form');
         specHelper.injector(function(_GetSuggestions_, $httpBackend) {});
         getSuggestions = GetSuggestions;
@@ -15,7 +15,7 @@ describe('Service: GetSuggestions', function () {
         expect(getSuggestions).to.be.defined;
     });
 
-    it('should return data', function () {
+    it('should return data', function() {
         expect(getSuggestions.getData().length).to.equal(0);
     });
 

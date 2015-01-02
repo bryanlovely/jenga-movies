@@ -3,17 +3,17 @@
 
     angular
         .module('movies', [
-            'ngAnimate',
-            'ngResource',
-            'ngCookies',
+//             'ngAnimate',
             'ngTouch',
-            'ngSanitize',
+//             'ngSanitize',
             'ui.router',
             'ui.bootstrap',
             'movies.core',
             'movies.layout',
             'movies.imdb-suggestions-form',
             'movies.movieList',
-            'movies.addMovie'
+            'movies.addMovie',
+            'movies.firebase'//,
+//             'movies.route'
             ]);
 })();

@@ -1,85 +1,32 @@
-/*jshint node:true*/
-'use strict';
+console.log('Loading express server...');
 
-var cookieParser = require('cookie-parser');
-var express = require('express');
-var favicon = require('serve-favicon');
-var httpProxy = require('http-proxy');
-var livereload = require('connect-livereload');
-// TODO Replace by logging building block
-var logger = require('morgan');
 var fs = require('fs');
 var pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-var port = pkg.server.static.port;
+var express = require('express');
+var buildConfig = require('../../build.conf');
 
-var apiProxy = httpProxy.createProxyServer({
-    target: 'http://localhost:8181'
-});
 var app = express();
-// TODO Replace by your context path
-var baseUrl = '/base';
-var baseApiUrl = '/base-api/*';
 
-app.use(logger('dev'));
+app.use('/' + buildConfig.buildDir.clientDir, express.static(buildConfig.buildDir.clientDir));
+app.use('/', express.static('./' + buildConfig.buildDir.clientDir));
 
-app.use(cookieParser());
+// app.use(express.static('build/images'));
 
 if (process.env.NODE_ENV === 'dev') {
-    // app.use(livereload());
-
-    app.get(baseUrl + '(/*)?', function(req, res) {
-        res.sendfile('dist/index.html');
-    });
-
-    app.use(
-        '/bower_components',
-        express.static('bower_components')
-    );
-
-    app.use(
-        express.static('dist')
-    );
-
-    app.use('/', function(req, res) {
-        res.sendfile('dist/index.html');
-    });
-
-    //As a fallback, any route that would otherwise throw a 404 (Not Found) will be given to the
-    //home page, which will try to decompose the route and use the correct client-side route.
-    app.use(function(req, res, next) {
-        var root = 'build';
-        console.log('Falling back to ' + root + '/index.html instead of ' + req.url);
-        req.url = '/build/index.html';
-        next();
-    });
-
-
-} else if (process.env.NODE_ENV === 'stage') {
-    app.get(baseUrl + '(/*)?', function(req, res) {
-        res.sendfile('dist/index.html');
-    });
-
-    app.use('/media', express.static('dist/media'));
-
-} else {
-    app.get(baseUrl + '(/*)?', function(req, res) {
-        res.sendfile('dist/index.html');
-    });
-
-    app.use('/media', express.static('dist/media'));
+    app.use('/bower_components',  express.static('bower_components'));
 }
 
-app.get(baseApiUrl, proxy);
-app.post(baseApiUrl, proxy);
-app.put(baseApiUrl, proxy);
-app.delete(baseApiUrl, proxy);
+app.get('/', function(req, res) {
+    res.send('Default Express server response. Perhaps you should run grunt serve --dev or --build');
+});
 
-function proxy(req, res, next) {
-    apiProxy.web(req, res);
-}
-
-apiProxy.on('error', function(err) {
-    console.warn(err);
+//As a fallback, any route that would otherwise throw a 404 (Not Found) will be given to the
+//home page, which will try to decompose the route and use the correct client-side route.
+app.use(function(req, res, next) {
+    var root = buildConfig.buildDir.clientDir;
+    console.log('Falling back to ' + root + '/' + buildConfig.appFiles.html + ' instead of ' + req.url);
+    req.url = root + '/' + buildConfig.appFiles.html;
+    next();
 });
 
 module.exports = app;
